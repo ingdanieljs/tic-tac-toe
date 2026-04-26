@@ -7,10 +7,10 @@
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Deploy to GitHub Pages](https://github.com/ingdanieljs/gv-tic-tac-toe/actions/workflows/deploy.yml/badge.svg)](https://github.com/ingdanieljs/gv-tic-tac-toe/actions/workflows/deploy.yml)
+[![Deploy to GitHub Pages](https://github.com/ingdanieljs/tic-tac-toe/actions/workflows/deploy.yml/badge.svg)](https://github.com/ingdanieljs/tic-tac-toe/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
 
-### 🌐 [**Jugar ahora →**](https://ingdanieljs.github.io/gv-tic-tac-toe/)
+### 🌐 [**Jugar ahora →**](https://ingdanieljs.github.io/tic-tac-toe/)
 
 <!-- Reemplaza con una captura real del juego en public/preview.png -->
 <img src="./public/preview.png" alt="Vista previa de Tic Tac Toe" width="600" />
@@ -113,17 +113,17 @@ El proyecto ya viene listo para desplegarse automáticamente en **GitHub Pages**
 
 ### Pasos a seguir
 
-1. **Sube el repo a GitHub** con el nombre `gv-tic-tac-toe` (o ajusta el `base` en [`vite.config.js`](./vite.config.js) si usas otro nombre).
+1. **Sube el repo a GitHub** con el nombre `tic-tac-toe` (o ajusta el `base` en [`vite.config.js`](./vite.config.js) si usas otro nombre).
 2. En tu repositorio, ve a **Settings → Pages**.
 3. En **Build and deployment → Source**, selecciona **GitHub Actions**.
 4. Haz `push` a la rama `main`. El workflow [`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) construirá la app y la publicará automáticamente.
 5. Tu sitio estará disponible en:
 
    ```
-   https://<tu-usuario>.github.io/gv-tic-tac-toe/
+   https://<tu-usuario>.github.io/tic-tac-toe/
    ```
 
-> 💡 Si despliegas en un dominio personalizado o en `<usuario>.github.io`, cambia `base: '/gv-tic-tac-toe/'` por `base: '/'` en `vite.config.js`.
+> 💡 Si despliegas en un dominio personalizado o en `<usuario>.github.io`, cambia `base: '/tic-tac-toe/'` por `base: '/'` en `vite.config.js`.
 
 ---
 

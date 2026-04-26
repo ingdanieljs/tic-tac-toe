@@ -5,6 +5,6 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   // Base path para GitHub Pages: https://<usuario>.github.io/<repo>/
   // Si despliegas en un dominio raíz (user.github.io) o dominio propio, cambia a '/'
-  base: '/gv-tic-tac-toe/',
+  base: '/tic-tac-toe/',
   plugins: [react()],
 })
