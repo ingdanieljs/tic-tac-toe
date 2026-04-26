@@ -24,6 +24,50 @@
   --color-bg-blue: #458588;
   --color-bg-gray: #a89984;
   --color-bg-aqua: #689d6a;
+  --color-button-text: #1d2021;
+  --color-select-border: #504945;
+}
+
+.background-wrapper[data-theme="ayu"] {
+  --color-bg: #0f1419;
+  --color-board: #14191f;
+  --color-square: #1f2430;
+  --color-square-hover: #2d3640;
+  --color-text-square: #e6e1cf;
+  --color-text-hover: #ffb454;
+  --color-bg-blue: #39bae6;
+  --color-bg-gray: #acb6bf;
+  --color-bg-aqua: #aad94c;
+  --color-button-text: #0f1419;
+  --color-select-border: #39424e;
+}
+
+.background-wrapper[data-theme="dracula"] {
+  --color-bg: #282a36;
+  --color-board: #1e1f29;
+  --color-square: #44475a;
+  --color-square-hover: #6272a4;
+  --color-text-square: #f8f8f2;
+  --color-text-hover: #ff79c6;
+  --color-bg-blue: #8be9fd;
+  --color-bg-gray: #6272a4;
+  --color-bg-aqua: #50fa7b;
+  --color-button-text: #282a36;
+  --color-select-border: #6272a4;
+}
+
+.background-wrapper[data-theme="catppuccin-mocha"] {
+  --color-bg: #1e1e2e;
+  --color-board: #181825;
+  --color-square: #313244;
+  --color-square-hover: #45475a;
+  --color-text-square: #cdd6f4;
+  --color-text-hover: #f5c2e7;
+  --color-bg-blue: #89b4fa;
+  --color-bg-gray: #a6adc8;
+  --color-bg-aqua: #94e2d5;
+  --color-button-text: #1e1e2e;
+  --color-select-border: #585b70;
 }
 
 .background-wrapper {
@@ -34,6 +78,18 @@
 .board {
   @apply rounded-2xl p-7;
   background-color: var(--color-board);
+}
+
+.theme-selector {
+  @apply mb-4;
+}
+
+.theme-select {
+  @apply w-full rounded-lg px-3 py-2 text-base focus:outline-none;
+  appearance: none;
+  background-color: var(--color-square);
+  border: 2px solid var(--color-select-border);
+  color: var(--color-text-square);
 }
 
 .game-pad {
@@ -52,8 +108,9 @@
 }
 
 .board-btn {
-  @apply text-2xl rounded-lg bg-gray-800 px-4 py-2 w-full focus:outline-none;
+  @apply text-2xl rounded-lg bg-gray-800 px-4 py-2 w-full focus:outline-none disabled:cursor-not-allowed;
   background-color: var(--color-text-square);
+  color: var(--color-button-text);
 }
 
 @media (min-width: 1024px) {
@@ -61,7 +118,7 @@
     background-color: var(--color-square-hover);
   }
 
-  .board-btn:hover {
+  .board-btn:not(:disabled):hover {
     background-color: var(--color-text-hover);
   }
 }
@@ -69,6 +126,7 @@
 .restart-btn {
   @apply text-2xl rounded-lg bg-gray-800 px-4 py-2 focus:outline-none;
   background-color: var(--color-text-square);
+  color: var(--color-button-text);
 }
 
 .restart-btn:hover {
@@ -83,7 +141,7 @@
 .winner-box {
   @apply rounded-lg size-20 flex flex-col items-center justify-center gap-1;
   background-color: var(--color-square);
-  color: var(--color-text-square);
+  color: var(--color-button-text);
 }
 
 .bg-blue {

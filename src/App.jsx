@@ -2,10 +2,25 @@ import { useState } from "react";
 import { Buttons } from "./components/Buttons";
 import { Scores } from "./components/Scores";
 import { Square } from "./components/Square";
-import { TURNS, WINNING_COMBINATIONS } from "./constants";
+import { ThemeSelector } from "./components/ThemeSelector";
+import {
+  THEME_STORAGE_KEY,
+  THEMES,
+  TURNS,
+  WINNING_COMBINATIONS,
+} from "./constants";
+
+const DEFAULT_THEME = THEMES[0].id;
 
 function App() {
   const [winnerConbination, setWinnerConbination] = useState([]);
+
+  const [theme, setTheme] = useState(() => {
+    const themeFromStorage = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return THEMES.some(({ id }) => id === themeFromStorage)
+      ? themeFromStorage
+      : DEFAULT_THEME;
+  });
 
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem("board");
@@ -38,6 +53,11 @@ function App() {
     handleNewGame();
     window.localStorage.removeItem("winners");
     setWinners({ playerX: 0, playerO: 0, draws: 0 });
+  };
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+    window.localStorage.setItem(THEME_STORAGE_KEY, newTheme);
   };
 
   const checkWinner = (board) => {
@@ -90,8 +110,9 @@ function App() {
   };
 
   return (
-    <section className="background-wrapper">
+    <section className="background-wrapper" data-theme={theme}>
       <section className="board">
+        <ThemeSelector theme={theme} onThemeChange={handleThemeChange} />
         <Scores winners={winners} />
         <section className="game-pad">
           {board.map((cell, index) => (

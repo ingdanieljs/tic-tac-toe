@@ -14,3 +14,12 @@ export const WINNING_COMBINATIONS = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
+export const THEME_STORAGE_KEY = "theme";
+
+export const THEMES = [
+  { id: "gruvbox", label: "Gruvbox" },
+  { id: "ayu", label: "Ayu" },
+  { id: "dracula", label: "Dracula" },
+  { id: "catppuccin-mocha", label: "Catppuccin Mocha" },
+];
