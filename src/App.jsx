@@ -9,8 +9,20 @@ import {
   TURNS,
   WINNING_COMBINATIONS,
 } from "./constants";
+import confetti from "canvas-confetti";
 
 const DEFAULT_THEME = THEMES[0].id;
+const CONFETTI_COLORS = [
+  "--color-bg-blue",
+  "--color-text-hover",
+  "--color-bg-aqua",
+  "--color-text-square",
+];
+const CONFETTI_PARTICLE_COUNT = 180;
+const CONFETTI_DEFAULTS = {
+  origin: { y: 0.65 },
+  ticks: 220,
+};
 
 function App() {
   const [winnerConbination, setWinnerConbination] = useState([]);
@@ -72,11 +84,56 @@ function App() {
     return null;
   };
 
+  const runConfetti = () => {
+    const themeElement = document.querySelector(".background-wrapper");
+    const styles = getComputedStyle(themeElement ?? document.documentElement);
+    const colors = CONFETTI_COLORS.map((color) =>
+      styles.getPropertyValue(color).trim()
+    );
+
+    const fireConfetti = (particleRatio, options) => {
+      confetti({
+        ...CONFETTI_DEFAULTS,
+        ...options,
+        colors,
+        particleCount: Math.floor(CONFETTI_PARTICLE_COUNT * particleRatio),
+      });
+    };
+
+    fireConfetti(0.25, {
+      spread: 26,
+      startVelocity: 55,
+    });
+
+    fireConfetti(0.2, {
+      spread: 60,
+    });
+
+    fireConfetti(0.35, {
+      spread: 100,
+      decay: 0.91,
+      scalar: 0.8,
+    });
+
+    fireConfetti(0.1, {
+      spread: 120,
+      startVelocity: 25,
+      decay: 0.92,
+      scalar: 1.2,
+    });
+
+    fireConfetti(0.1, {
+      spread: 120,
+      startVelocity: 45,
+    });
+  };
+
   const verifyWinner = (_board) => {
     let winnerPlayer = null;
     const _winner = checkWinner(_board);
     if (_winner) {
       winnerPlayer = _winner === TURNS.playerX ? "playerX" : "playerO";
+      runConfetti();
     } else if (!_board.includes(null)) {
       winnerPlayer = "draws";
     }
